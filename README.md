@@ -1,6 +1,6 @@
 # PigGame (Dice Game)
 
- Pig Dice Game was first described in print in 1945 by John Scarne and this my interpretation of it using HTML, CSS and Javascript.
+ Pig Dice Game was first described in print in 1945 by John Scarne and this is my interpretation of it using HTML, CSS and Javascript.
 
  ## Play Requirements
 
