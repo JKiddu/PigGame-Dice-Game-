@@ -1,5 +1,5 @@
 
-var globalScores, scorePerRound, activePlayer, diceImage, gameRunning;
+var globalScores, scorePerRound, activePlayer, diceImage, gameRunning, previousScore;
 
 gameStart();
 diceImage = document.querySelector('.dice');
@@ -9,6 +9,7 @@ function gameStart(){
     scorePerRound = 0;
     activePlayer = 0;
     gameRunning = true;
+    previousScore  = 0;
     
     document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = '0';
@@ -27,6 +28,8 @@ function gameStart(){
 }
 
 function playerSwitch(){
+
+    previousScore = 0;
     // Change active player.
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
         
@@ -48,20 +51,27 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     if (gameRunning){
         //1. Generate random number.
         var diceNumber = Math.ceil(Math.random() * 6);
-        
+        console.log("previous: " + previousScore); 
+        console.log("current: " + diceNumber);
+             
         //2. Display the dice.
         diceImage.style.display = 'block';
         diceImage.src = 'dice-' + diceNumber + '.png';
 
         //3. Update the score if NOT equal to 1.
-        if (diceNumber !== 1){
+        if (diceNumber !== 1 && (previousScore != 6 || diceNumber !=6)){
             scorePerRound += diceNumber;
             document.querySelector('#current-' + activePlayer).textContent = scorePerRound;
+            previousScore = diceNumber;
         } else {
-            //Player Switch
+            //Player Switch           
             playerSwitch();
+            
         }
+
+        
     }
+    
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function(){
