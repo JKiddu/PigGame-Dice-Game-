@@ -51,8 +51,6 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     if (gameRunning){
         //1. Generate random number.
         var diceNumber = Math.ceil(Math.random() * 6);
-        console.log("previous: " + previousScore); 
-        console.log("current: " + diceNumber);
              
         //2. Display the dice.
         diceImage.style.display = 'block';
@@ -82,8 +80,13 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
         //Show the updated score to the UI.
         document.querySelector('#score-' + activePlayer).textContent = globalScores[activePlayer];
 
+        var finalScore = document.querySelector('.final-score').value;
+        var winScore;
+        finalScore ? winScore = finalScore : winScore = 100;
+
+
         //Check if player wins.
-        if (globalScores[activePlayer] >= 10){
+        if (globalScores[activePlayer] >= winScore){
             document.querySelector('#name-' + activePlayer).textContent = "WINNER!";
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
