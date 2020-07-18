@@ -18,8 +18,11 @@
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
 - Custom rules:
-    - A player looses his ENTIRE score when he/she rolls two 6 in a row. After that, it's the next player's turn.
+    1. A player looses his ENTIRE score when he/she rolls two 6 in a row. After that, it's the next player's turn. (Commented)
+    2. Input field where players can set the winning score, so that they can change the predefiend score of 100. (Live)
+    3. Another dice to mix things up. (Live) 
 
+Custom rules 1 and 3 do not work together (you can contribute if you want all 3), so make sure either one is running else the code will not run as expected. Final build has custom rules 2 and 3 deployed. Hope you enjoy the game!
 
 ## Reference
 [Jonas Schmedtmann](https://www.udemy.com/course/the-complete-javascript-course/)
